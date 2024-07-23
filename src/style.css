@@ -6,7 +6,6 @@
 }
 
 :root {
-    --body-bg: url(./assets/body-bg.jpg);
     --bg-dark-blue-color: rgb(77, 0, 128);
     --bg-light-purple-color: rgb(255, 0, 255);
 }
