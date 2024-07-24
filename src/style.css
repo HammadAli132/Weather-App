@@ -20,12 +20,24 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: radial-gradient(circle at top , var(--bg-dark-blue-color), black);
     background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+li {
+    list-style: none;
+    text-wrap: wrap;
+}
+
+.max-width {
+    width: 100%;
+    max-width: 1230px;
+    padding: 20px 30px;
 }
 
 header {
-    padding: 20px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,7 +95,7 @@ form {
     }
 }
 
-#search-btn {
+.animated-btn {
     padding: 10px 25px;
     border-radius: 20px;
     border: none;
@@ -95,7 +107,96 @@ form {
     animation: BackwardAnimation .2s linear forwards;
 }
 
-#search-btn:hover {
+.animated-btn:hover {
     cursor: pointer;
     animation: ForwardAnimation .2s linear forwards;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+}
+
+#main-heading {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    align-self: center;
+}
+
+#city-name {
+    color: var(--bg-light-purple-color);
+    text-shadow: 0px 0px 5px var(--bg-light-purple-color);
+}
+
+section {
+    width: 100%;
+}
+
+.temp-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 30px;
+    max-width: 32rem;
+    border: 2px solid white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 1px var(--bg-light-purple-color);
+    padding: 20px;
+    color: white;
+}
+
+@media (max-width: 810px) {
+    .temp-box {
+        max-width: none;
+    }
+}
+
+#toggle-week-temp-view {
+    padding: 20px 25px;
+    border-radius: 30px;
+}
+
+.day-and-weather {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.day, .date {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--bg-light-purple-color);
+}
+
+.weather-icon {
+    width: 80px;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+}
+
+.detail-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bg-light-purple-color);
+}
+
+#week-weather {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22.5rem, 1fr));
+    gap: 30px;
+}
+
+#week-weather > div[class="temp-box"] {
+    max-width: none;
 }

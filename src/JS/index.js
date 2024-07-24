@@ -8,4 +8,4 @@ function start() {
     body.appendChild(header);
 }
 
-start();
+// start();
