@@ -44,7 +44,7 @@ export default function currentWeatherSection() {
     heading2.innerText = 'Wind Speed: ';
     wind.appendChild(heading2);
     const windDesc = document.createElement('span');
-    windDesc.innerHTML = `${weatherObj.windSpeed} km/h`;
+    windDesc.innerHTML = `${weatherObj.windSpeed} MPH`;
     wind.appendChild(windDesc);
     list.appendChild(wind);
 
@@ -55,7 +55,7 @@ export default function currentWeatherSection() {
     heading3.innerText = 'Humidity: ';
     humidity.appendChild(heading3);
     const humidDesc = document.createElement('span');
-    humidDesc.innerHTML = `${weatherObj.humidity}`;
+    humidDesc.innerHTML = `${weatherObj.humidity}%`;
     humidity.appendChild(humidDesc);
     list.appendChild(humidity);
 

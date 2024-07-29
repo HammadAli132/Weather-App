@@ -39,7 +39,7 @@ function getTempBox(arr, index) {
     heading2.innerText = 'Wind Speed: ';
     wind.appendChild(heading2);
     const windDesc = document.createElement('span');
-    windDesc.innerHTML = `${arr.weatherArray[index].windSpeed} km/h`;
+    windDesc.innerHTML = `${arr.weatherArray[index].windSpeed} MPH`;
     wind.appendChild(windDesc);
     list.appendChild(wind);
 
@@ -50,7 +50,7 @@ function getTempBox(arr, index) {
     heading3.innerText = 'Humidity: ';
     humidity.appendChild(heading3);
     const humidDesc = document.createElement('span');
-    humidDesc.innerHTML = `${arr.weatherArray[index].humidity}`;
+    humidDesc.innerHTML = `${arr.weatherArray[index].humidity}%`;
     humidity.appendChild(humidDesc);
     list.appendChild(humidity);
 
@@ -75,7 +75,6 @@ export default function weekWeatherSection() {
     const weatherArray = getWeatherArray();
     const section = document.createElement('section');
     section.id = 'week-weather';
-
     for (let i = 0; i < 7; i++) {
         let tempBox = getTempBox(weatherArray, i);
         section.appendChild(tempBox);

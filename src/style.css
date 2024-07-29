@@ -62,6 +62,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.2em;
 }
 
 #site-title {
@@ -138,6 +140,7 @@ main {
     flex-direction: column;
     align-items: start;
     gap: 2rem;
+
 }
 
 #main-heading {
@@ -145,6 +148,17 @@ main {
     color: white;
     font-size: 2.5rem;
     align-self: center;
+}
+
+@media (max-width: 430px) {
+    #site-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    #main-heading {
+        font-size: 2rem;
+    }
 }
 
 #city-name {
@@ -163,6 +177,7 @@ section {
     align-items: start;
     gap: 30px;
     max-width: 32rem;
+    min-width: 18rem;
     border: 2px solid var(--bg-light-purple-color-lighter);
     border-radius: 20px;
     box-shadow: 0px 0px 20px 1px var(--bg-light-purple-color);
@@ -214,7 +229,7 @@ section {
 
 #week-weather {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(22.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 30px;
 }
 
