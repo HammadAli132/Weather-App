@@ -8,12 +8,31 @@
 :root {
     --bg-dark-blue-color: rgb(77, 0, 128);
     --bg-light-purple-color: rgb(255, 0, 255);
+    --bg-light-purple-color-lighter: rgb(253, 90, 253);
 }
 
 html {
     height: 100%;
     font-weight: 400;
     font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* height: 6px; */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-blue-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-light-purple-color);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-light-purple-color-lighter);
 }
 
 body {
@@ -24,6 +43,8 @@ body {
     background: radial-gradient(circle at top , var(--bg-dark-blue-color), black);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-light-purple-color) var(--bg-light-purple-color);
 }
 
 li {
@@ -142,7 +163,7 @@ section {
     align-items: start;
     gap: 30px;
     max-width: 32rem;
-    border: 2px solid white;
+    border: 2px solid var(--bg-light-purple-color-lighter);
     border-radius: 20px;
     box-shadow: 0px 0px 20px 1px var(--bg-light-purple-color);
     padding: 20px;

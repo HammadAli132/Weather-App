@@ -1,26 +1,21 @@
-import { getWeatherObj } from "./weather";
+import { getWeatherArray } from "./weather";
 
-export default function currentWeatherSection() {
-    const weatherObj = getWeatherObj();
-
-    const section = document.createElement('section');
-    section.id = 'weather-today';
-
+function getTempBox(arr, index) {
     const tempBox = document.createElement('div');
     tempBox.setAttribute('class', 'temp-box');
 
     const dayAndWeather = document.createElement('div');
     dayAndWeather.setAttribute('class', 'day-and-weather');
 
-    const day = document.createElement('span');
-    day.setAttribute('class', 'day');
-    day.innerText = weatherObj.day;
-    dayAndWeather.appendChild(day);
+    const Date = document.createElement('span');
+    Date.setAttribute('class', 'date');
+    Date.innerText = arr.weatherArray[index].date;
+    dayAndWeather.appendChild(Date);
 
     const weatherIcon = document.createElement('img');
     weatherIcon.setAttribute('class', 'weather-icon');
     weatherIcon.alt = 'Error';
-    weatherIcon.src = weatherObj.icon;
+    weatherIcon.src = arr.weatherArray[index].icon;
     dayAndWeather.appendChild(weatherIcon);
 
     const list = document.createElement('ul');
@@ -33,7 +28,7 @@ export default function currentWeatherSection() {
     heading1.innerText = 'Temperature: ';
     temp.appendChild(heading1);
     const tempDesc = document.createElement('span');
-    tempDesc.innerHTML = `${weatherObj.temperature} &deg;F`;
+    tempDesc.innerHTML = `${arr.weatherArray[index].temperature} &deg;F`;
     temp.appendChild(tempDesc);
     list.appendChild(temp);
 
@@ -44,7 +39,7 @@ export default function currentWeatherSection() {
     heading2.innerText = 'Wind Speed: ';
     wind.appendChild(heading2);
     const windDesc = document.createElement('span');
-    windDesc.innerHTML = `${weatherObj.windSpeed} km/h`;
+    windDesc.innerHTML = `${arr.weatherArray[index].windSpeed} km/h`;
     wind.appendChild(windDesc);
     list.appendChild(wind);
 
@@ -55,7 +50,7 @@ export default function currentWeatherSection() {
     heading3.innerText = 'Humidity: ';
     humidity.appendChild(heading3);
     const humidDesc = document.createElement('span');
-    humidDesc.innerHTML = `${weatherObj.humidity}`;
+    humidDesc.innerHTML = `${arr.weatherArray[index].humidity}`;
     humidity.appendChild(humidDesc);
     list.appendChild(humidity);
 
@@ -66,14 +61,24 @@ export default function currentWeatherSection() {
     heading4.innerText = 'Description: ';
     description.appendChild(heading4);
     const descDesc = document.createElement('span');
-    descDesc.innerHTML = `${weatherObj.description}`;
+    descDesc.innerHTML = `${arr.weatherArray[index].description}`;
     description.appendChild(descDesc);
     list.appendChild(description);
 
     tempBox.appendChild(dayAndWeather);
     tempBox.appendChild(list);
 
-    section.appendChild(tempBox);
+    return tempBox;
+}
 
+export default function weekWeatherSection() {
+    const weatherArray = getWeatherArray();
+    const section = document.createElement('section');
+    section.id = 'week-weather';
+
+    for (let i = 0; i < 7; i++) {
+        let tempBox = getTempBox(weatherArray, i);
+        section.appendChild(tempBox);
+    }
     return section;
 }

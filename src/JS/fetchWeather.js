@@ -1,3 +1,5 @@
+import { initializeWeatherObj } from "./weather";
+
 function getRequest(cityName) {
     return new Request(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/today/next7days?unitGroup=us&key=CWUNNQ9A45KQA5YP6G6JEXHRD`, {mode: 'cors'});
 }
@@ -12,7 +14,7 @@ async function fetchWeather(cityName) {
             return;
         }
         const result = await response.json();
-        console.log(result);
+        initializeWeatherObj(result);
     } catch (error) {
         console.log(`Fetch Error: ${error}`);
     }

@@ -1,6 +1,7 @@
 import fetchWeather from "./fetchWeather";
+import { updateMainSection } from "./main";
 
-function uponFormSubmittion(event) {
+async function uponFormSubmittion(event) {
     event.preventDefault();
     
     const searchBox = document.getElementById('location-search');
@@ -10,7 +11,8 @@ function uponFormSubmittion(event) {
         return;
     }
     searchBox.value = null;
-    fetchWeather(cityName);
+    await fetchWeather(cityName);
+    updateMainSection();
 }
 
 export default function getHeader() {
